@@ -1,0 +1,113 @@
+1. Library Book Management (LBM.java)
+class Book {
+    int bookId;
+    String title;
+    String author;
+
+    void showDetails() {
+        System.out.println("Book ID : " + bookId);
+        System.out.println("Title : " + title);
+        System.out.println("Author : " + author);
+    }
+}
+
+class IssuedBook extends Book {
+    String issueDate, returnDate;
+
+    void showBookDetails() {
+        showDetails();
+        System.out.println("Issue Date : " + issueDate);
+        System.out.println("Return Date : " + returnDate);
+    }
+}	
+
+public class LBM {
+    public static void main(String[] args) {
+
+        IssuedBook i1, i2;
+
+        i1 = new IssuedBook();
+        i2 = new IssuedBook();
+
+        i1.bookId = 230708;
+        i1.title = "The God of Small Things";
+        i1.author = "Arundhati Roy";
+        i1.issueDate = "28/01/26";
+        i1.returnDate = "10/02/26";
+
+        System.out.println("---Details of Book1---\n");
+        i1.showBookDetails();
+
+        i2.bookId = 292708;
+        i2.title = "The Guide";
+        i2.author = "R.K. Narayan";
+        i2.issueDate = "02/02/26";
+        i2.returnDate = "12/02/26";
+
+        System.out.println("\n---Details of Book2---\n");
+        i2.showBookDetails();
+    }
+}
+
+2. Online Shopping System (OSS.java)
+class Product {
+    int productID;
+    String productName;
+    double price;
+
+    void showDetails() {
+        System.out.println("Product ID : " + productID);
+        System.out.println("Product Name : " + productName);
+        System.out.println("Price : Rs." + price);
+    }
+}
+
+class Electronics extends Product {
+    int warrPeriod;
+
+    void showElectronicsDetails() {
+        showDetails();
+        System.out.println("Warranty Period : " + warrPeriod + " year");
+    }
+}
+
+class Clothing extends Product {
+    char size;
+    String fabricType;
+
+    void showClothingDetails() {
+        showDetails();
+        System.out.println("Size : " + size);
+        System.out.println("Fabric Type : " + fabricType);
+    }
+}
+
+public class OSS {
+    public static void main(String[] args) {
+
+        Clothing c;
+        Electronics e;
+
+        c = new Clothing();
+        e = new Electronics();
+
+        System.out.println("---Details of Electronic Product---\n");
+
+        e.productID = 2011;
+        e.productName = "Laptop";
+        e.price = 75000;
+        e.warrPeriod = 2;
+
+        e.showElectronicsDetails();
+
+        System.out.println("\n---Details of Clothing Product---\n");
+
+        c.productID = 5011;
+        c.productName = "Shirt";
+        c.price = 500;
+        c.size = 'L';
+        c.fabricType = "Cotton";
+
+        c.showClothingDetails();
+    }
+}
