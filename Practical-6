@@ -1,0 +1,76 @@
+1. Compile-Time Polymorphism (Method Overloading)
+class AreaCalculator {
+
+    void area(int side) {
+        int s = side * side;
+        System.out.println("\nArea of Square : " + s);
+    }
+
+    void area(int length, int breadth) {
+        int r = length * breadth;
+        System.out.println("\nArea of Rectangle : " + r);
+    }
+
+    void area(double radius) {
+        double c = 3.14 * radius * radius;
+        System.out.println("\nArea of Circle : " + c);
+    }
+}
+
+public class Main {
+    public static void main(String args[]) {
+
+        AreaCalculator a;
+        a = new AreaCalculator();
+        a.area(5);
+        a.area(3, 5);
+        a.area(5.5);
+    }
+}
+
+2.	Runtime Polymorphism (Method Overriding)
+import java.util.Scanner;
+
+class Employee {
+    void calculateSalary() {
+        System.out.println("Salary of the Employees: \n");
+    }
+}
+
+class FullTimeEmployee extends Employee {
+    void calculateSalary(int salary) {
+        System.out.println("Salary of Full Time Employee: Rs." + salary);
+    }
+}
+
+class PartTimeEmployee extends Employee {
+    void calculateSalary(int salary) {
+        System.out.println("Salary of Part Time Employee: Rs." + (salary / 2));
+    }
+}
+
+public class Salary {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+
+        FullTimeEmployee f = new FullTimeEmployee();
+        PartTimeEmployee p = new PartTimeEmployee();
+
+        System.out.println("Enter the Salary: ");
+        int salary = sc.nextInt();
+
+        System.out.println("Enter your choice: \n1.Full Time Employee \n2.Part Time Employee");
+        int choice = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                f.calculateSalary(salary);
+                break;
+            case 2:
+                p.calculateSalary(salary);
+                break;
+            default:
+                System.out.println("Choice Invalid! Enter correct choice.");
+        }
+     }
+}
