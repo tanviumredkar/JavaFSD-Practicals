@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int nume, deno;
+        System.out.println("Enter numerator and denominator: ");
+        nume = sc.nextInt();
+        deno = sc.nextInt();
+
+        try {
+            int r = nume / deno;
+            System.out.println("Result = " + r);
+        }
+
+        catch (ArithmeticException e) {
+            System.out.println("Error! Denominator can not be zero.");
+        }
+
+        finally {
+            System.out.println("Code successfully executed.");
+        }
+        sc.close();
+    }
+}
